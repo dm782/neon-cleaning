@@ -25,7 +25,7 @@
         }
 
         html, body {
-            overflow-x: hidden; /* Критично для адаптива */
+            overflow-x: hidden;
             width: 100%;
         }
 
@@ -53,7 +53,6 @@
             animation: float 10s infinite ease-in-out;
         }
 
-        /* Адаптивные размеры фигур */
         .shape-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--neon-purple); }
         .shape-2 { bottom: 20%; right: -10%; width: 40vw; height: 40vw; background: var(--neon-cyan); animation-delay: 2s; }
         .shape-3 { top: 40%; left: 30%; width: 30vw; height: 30vw; background: var(--neon-pink); animation-delay: 4s; }
@@ -101,7 +100,7 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(188, 19, 254, 0.6); }
 
         h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem); /* Адаптивный шрифт */
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 1rem; text-align: center; text-transform: uppercase;
             background: linear-gradient(to right, var(--neon-cyan), var(--text-main));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -116,14 +115,32 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: 900; color: white; text-shadow: 0 0 10px var(--neon-pink); white-space: nowrap; }
+        
+        .logo { font-size: 1.4rem; font-weight: 900; color: white; text-shadow: 0 0 10px var(--neon-pink); white-space: nowrap; margin-right: 20px; }
         .logo span { color: var(--neon-cyan); }
         
+        nav { margin-right: auto; } /* Сдвигает меню влево */
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
 
-        .header-btn { margin-left: 20px; padding: 8px 20px; font-size: 0.8rem; }
+        /* Стили для телефона в шапке */
+        .header-phone {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 20px;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+        .header-phone:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-cyan);
+        }
+        .header-phone i { margin-right: 8px; color: var(--neon-pink); }
+
+        .header-btn { padding: 8px 20px; font-size: 0.8rem; }
 
         /* --- HERO --- */
         .hero {
@@ -131,7 +148,7 @@
             text-align: center; padding: 100px 20px 60px 20px;
         }
         .hero-content h1 { 
-            font-size: clamp(2.2rem, 8vw, 4rem); /* Адаптивный размер */
+            font-size: clamp(2.2rem, 8vw, 4rem); 
             line-height: 1.1; margin-bottom: 20px; font-weight: 900; 
         }
         .hero-content h1 .glow { color: var(--neon-cyan); text-shadow: 0 0 20px var(--neon-cyan); }
@@ -139,9 +156,7 @@
 
         /* --- FEATURES --- */
         .features { padding: 60px 0; }
-        /* Grid auto-fit с минимальным размером 280px */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
         .feature-card {
             background: var(--bg-card); padding: 30px 20px; border-radius: 20px;
             text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; position: relative; overflow: hidden;
@@ -157,7 +172,7 @@
             border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; position: relative;
             display: flex; flex-direction: column;
         }
-        .service-card .btn { margin-top: auto; } /* Кнопка всегда внизу */
+        .service-card .btn { margin-top: auto; }
         .service-card:hover { border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(112, 0, 255, 0.2); }
         .service-price { font-size: 2rem; font-weight: 900; color: var(--neon-pink); margin: 20px 0; }
         .service-list { list-style: none; margin-bottom: 30px; }
@@ -207,66 +222,50 @@
         .input-field {
             width: 100%; padding: 15px; background: rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 10px; font-family: 'Montserrat', sans-serif;
-            font-size: 16px; /* 16px предотвращает зум на iPhone при вводе */
+            font-size: 16px;
         }
         .input-field:focus { outline: none; border-color: var(--neon-pink); box-shadow: 0 0 10px rgba(188, 19, 254, 0.3); }
 
         /* --- FOOTER --- */
         footer { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         .footer-content { display: flex; flex-direction: column; gap: 10px; }
+        .footer-phone { color: white; font-size: 1.2rem; text-decoration: none; font-weight: bold; margin: 10px 0; display: inline-block; }
+        .footer-phone:hover { color: var(--neon-cyan); }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- SUPER RESPONSIVE / MEDIA QUERIES --- */
         
-        /* Tablet & Small Laptop */
         @media (max-width: 992px) {
             .cases-grid { grid-template-columns: 1fr; max-width: 700px; margin: 0 auto; }
             .case-card { justify-content: space-between; }
+            nav { display: none; } /* Скрываем меню на планшетах, оставляем телефон */
+            .logo { margin-right: auto; }
         }
 
-        /* Mobile Standard (iPhone, Android) */
         @media (max-width: 768px) {
-            .nav-container ul { display: none; } /* Скрываем меню на моб */
-            .header-btn { display: none; } /* Скрываем кнопку в хедере на моб */
+            .header-btn { display: none; } /* Скрываем кнопку, оставляем телефон */
             
             .hero-content h1 { font-size: 2.8rem; }
-            
-            .case-card { 
-                flex-direction: column-reverse; 
-                text-align: center; 
-                padding: 30px 20px;
-            }
+            .case-card { flex-direction: column-reverse; text-align: center; padding: 30px 20px; }
             .case-info { padding-right: 0; width: 100%; }
             .case-vector { width: 140px; height: 140px; margin-bottom: 20px; }
-            .case-info h3 { margin-top: 5px; }
         }
 
-        /* Small Mobile (300px - 480px) */
         @media (max-width: 480px) {
             .container { padding: 0 15px; }
-            
-            .btn { width: 100%; padding: 15px; } /* Кнопки во всю ширину */
-            
+            .btn { width: 100%; padding: 15px; }
             .hero-content h1 { font-size: 2.2rem; margin-bottom: 15px; }
-            .hero-content p { font-size: 1rem; margin-bottom: 30px; }
-            
-            .features-grid, .services-grid { 
-                grid-template-columns: 1fr; /* Одна колонка строго */
-            }
-            
-            .form-box { padding: 30px 20px; }
-            h2 { font-size: 1.8rem; }
-            .section-subtitle { margin-bottom: 2rem; font-size: 1rem; }
+            .features-grid, .services-grid { grid-template-columns: 1fr; }
+            .header-phone { font-size: 0.9rem; margin-right: 0; }
+            .header-phone i { display: none; } /* Убираем иконку телефона в шапке на совсем мелких, чтоб влез номер */
         }
 
-        /* Ultra Small (300px) */
-        @media (max-width: 320px) {
+        @media (max-width: 350px) {
             h1 { font-size: 1.8rem !important; }
-            h2 { font-size: 1.5rem !important; }
-            .logo { font-size: 1.2rem; }
-            .feature-card, .service-card { padding: 20px 15px; }
+            .logo { font-size: 1.1rem; }
+            .header-phone { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -289,6 +288,10 @@
                     <li><a href="#cases">Технологии</a></li>
                 </ul>
             </nav>
+            <!-- Номер телефона в шапке -->
+            <a href="tel:+74957977180" class="header-phone">
+                <i class="fas fa-phone-alt"></i> +7 (495) 797-71-80
+            </a>
             <a href="#contact" class="btn btn-neon header-btn">Заказать</a>
         </div>
     </header>
@@ -298,7 +301,7 @@
         <div class="container hero-content">
             <h1>Чистота<br>с <span class="glow">неоновым</span> блеском</h1>
             <p>Профессиональный клининг в Москве. Эко-химия и технологии будущего.</p>
-            <a href="#contact" class="btn btn-primary">Рассчитать стоимость</a>
+            <a href="tel:+74957977180" class="btn btn-primary">Позвонить сейчас</a>
         </div>
     </section>
 
@@ -373,7 +376,6 @@
             <p class="section-subtitle reveal">Чистота через призму науки</p>
 
             <div class="cases-grid">
-                
                 <!-- Case 1 -->
                 <div class="case-card reveal" style="--glow-color: rgba(188, 19, 254, 0.5);">
                     <div class="case-info">
@@ -420,7 +422,6 @@
                         </svg>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -430,6 +431,7 @@
         <div class="container">
             <div class="form-box reveal">
                 <h2>Оставьте заявку</h2>
+                <p style="color: #94a3b8; margin-bottom: 20px;">или позвоните нам:<br> <a href="tel:+74957977180" style="color: var(--neon-cyan); text-decoration: none; font-weight: bold; font-size: 1.2rem;">+7 (495) 797-71-80</a></p>
                 <form onsubmit="event.preventDefault(); alert('Отправлено!');">
                     <div class="input-group">
                         <label>Имя</label>
@@ -449,6 +451,7 @@
     <footer>
         <div class="container footer-content">
             <div class="logo" style="font-size: 1.2rem;">NEON<span>CLEAN</span></div>
+            <a href="tel:+74957977180" class="footer-phone">+7 (495) 797-71-80</a>
             <p>Москва, Пресненская наб., 12</p>
             <p>&copy; <span id="year"></span> Все права защищены.</p>
         </div>
